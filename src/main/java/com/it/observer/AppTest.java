@@ -5,6 +5,7 @@ import java.util.List;
 
 /**
  * 观察者模式
+ * 观察者模式（Observer）完美的将观察者和被观察的对象分离开。
  *
  * 实现的关键之处：
  * 1、报社有一个记录了所有订阅者的列表
@@ -28,6 +29,9 @@ interface Observer {
 
     // 订阅某个报纸
     void add(Subject subject);
+
+    // 取消订阅
+    void cancel(Subject subject);
 }
 
 
@@ -61,6 +65,11 @@ class User implements Observer{
     @Override
     public void add(Subject subject) {
         subject.registerObserver(this);
+    }
+
+    @Override
+    public void cancel(Subject subject) {
+        subject.removeObserver(this);
     }
 }
 
@@ -99,14 +108,23 @@ public class AppTest {
 
     public static void main(String[] args) {
         Sender sender = new Sender();
+        Sender bagua = new Sender();
+
         User user = new User("张珊珊");
         User user1 = new User("李思思");
         User user2 = new User("王微微");
 
         user.add(sender);
+        user.add(bagua);
         user1.add(sender);
         user2.add(sender);
 
+
         sender.setNewsPaper("杨幂离婚了！");
+        user.cancel(sender);
+
+        sender.setNewsPaper("ffffff");
+        bagua.setNewsPaper("aaaaaaaaaa");
+
     }
 }
