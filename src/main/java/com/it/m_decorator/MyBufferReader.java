@@ -1,4 +1,4 @@
-package com.it.decorator;
+package com.it.m_decorator;
 
 import java.io.*;
 
