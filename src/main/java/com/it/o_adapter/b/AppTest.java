@@ -17,7 +17,7 @@ class Filter {
         return getClass().getSimpleName();
     }
 
-    public Waveform process(Waveform input) {
+    public Waveform process1(Waveform input) {
         return input;
     }
 }
@@ -29,7 +29,7 @@ class LowPass extends Filter {
         this.cutoff = cutoff;
     }
 
-    public Waveform process(Waveform input) {
+    public Waveform process1(Waveform input) {
         return input; // Dummy processing
     }
 }
@@ -41,7 +41,7 @@ class HighPass extends Filter {
         this.cutoff = cutoff;
     }
 
-    public Waveform process(Waveform input) {
+    public Waveform process1(Waveform input) {
         return input;
     }
 }
@@ -53,7 +53,7 @@ class BandPass extends Filter {
         this.lowCutoff = lowCutoff;
         this.highCutoff = highCutoff;
     }
-    public Waveform process(Waveform input) {
+    public Waveform process1(Waveform input) {
         return input;
     }
 }
@@ -113,7 +113,7 @@ class FilterAdapter implements Processor {
 
     @Override
     public Waveform process(Object input) {
-        return filter.process((Waveform) input);
+        return filter.process1((Waveform) input);
     }
 }
 

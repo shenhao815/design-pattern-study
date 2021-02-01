@@ -1,4 +1,4 @@
-package com.it.stratege;
+package com.it.p_stratege;
 
 /**
  * 策略模式
@@ -15,7 +15,7 @@ package com.it.stratege;
  *
  */
 
-
+// ============飞行行为=============
 interface FlyBehavior {
     void fly();
 }
@@ -50,6 +50,7 @@ class FlyNoway implements FlyBehavior {
     }
 }
 
+// ============叫声行为=============
 interface QuackBehavior{
     void quack();
 }
@@ -78,6 +79,7 @@ class MuteQuack implements QuackBehavior {
     }
 }
 
+// ============父类鸭子===============
 abstract class Duck{
 
     protected FlyBehavior fb;
@@ -114,6 +116,7 @@ abstract class Duck{
     public abstract void display();
 }
 
+// ==========具体要用的鸭子============
 class MallardDuck extends Duck {
 
     public MallardDuck() {
@@ -126,7 +129,7 @@ class MallardDuck extends Duck {
         System.out.println("外观是野鸭");
     }
 }
-
+// ==========具体要用的鸭子============
 class RubberDuck extends Duck {
 
     public RubberDuck() {
@@ -139,7 +142,7 @@ class RubberDuck extends Duck {
         System.out.println("外观是红头野鸭");
     }
 }
-
+// ==========具体要用的鸭子============
 class MuteDuck extends Duck {
     public MuteDuck(){
         this.fb = new FlyNoway();
@@ -152,6 +155,15 @@ class MuteDuck extends Duck {
     }
 }
 
+
+// ====================客户端应用代码===========================
+// 客户端扩展一个新的飞行行为
+class FlyWithCat implements FlyBehavior {
+    @Override
+    public void fly() {
+        System.out.println("头上顶个竹蜻蜓飞~~~~");
+    }
+}
 
 public class AppTest {
     public static void main(String[] args) {
@@ -168,6 +180,8 @@ public class AppTest {
         MuteDuck d2 = new MuteDuck();
         d2.performFly();
         d2.setFb(new FlyWithRocket());
+        d2.performFly();
+        d2.setFb(new FlyWithCat());
         d2.performFly();
     }
 }
