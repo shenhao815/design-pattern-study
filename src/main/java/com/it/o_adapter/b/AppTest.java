@@ -1,6 +1,4 @@
-package com.it.adapter.b;
-
-import javafx.scene.web.WebView;
+package com.it.o_adapter.b;
 
 import java.util.Arrays;
 

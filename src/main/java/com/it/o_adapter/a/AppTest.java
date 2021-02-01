@@ -1,4 +1,4 @@
-package com.it.adapter.a;
+package com.it.o_adapter.a;
 
 /*
     定义：一个类的接口转换成客户端希望的另一个接口。适配器模式让那些接口不兼容的类可以一起工作。
