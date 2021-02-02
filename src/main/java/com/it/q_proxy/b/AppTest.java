@@ -1,4 +1,4 @@
-package com.it.proxy.b;
+package com.it.q_proxy.b;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
@@ -104,12 +104,3 @@ public class AppTest {
     }
 }
 
-/**
- * 这样处理也可以，但是缺点很多：
- * 1，代码重复率高
- * 2，如果需求再次变化，需要改多个地方
- * 3，代码急剧膨胀，核心业务代码，与非核心业务代码，耦合在一起！
- * 4，需求要求加入 求余，开方  立方。。。还必须在每个加入的新方法中，都手动进行打印！
- *
- * 针对上述问题，现采用动态代码模式，见b包
- */

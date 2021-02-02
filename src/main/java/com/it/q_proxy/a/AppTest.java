@@ -1,4 +1,4 @@
-package com.it.proxy.a;
+package com.it.q_proxy.a;
 
 /*
     需求现有一个计算器类，要给计算器类加入日志，做法为在每个方法中添加打印
